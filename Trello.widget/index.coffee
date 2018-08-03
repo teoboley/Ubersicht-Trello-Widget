@@ -11,7 +11,7 @@ token = ''
 boardId = ''
 
 # Get your User Id by navigating to the url https://api.trello.com/1/members/INSERTYOURUSERNAMEHERE
-userId = ''
+userId = null
 
 # Finally enter the name of the List you want to have displayed
 listName = ''
@@ -32,7 +32,7 @@ update: (output, domEl) ->
   $domEl.append("<ul>")
 
   for item in listData.cards
-    if !userId || item.idMembers.includes(userId)
+    if userId == null || item.idMembers.includes(userId)
       $domEl.append @renderItem(item)
   
   $domEl.append("</ul>")
